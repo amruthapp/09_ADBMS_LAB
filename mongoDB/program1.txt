@@ -1,0 +1,282 @@
+
+➢ Create a database (Eg : MyCev)
+➢ Create a collection (Eg: db_mca)
+➢ Create a collection (Eg: db_cs)
+➢ Insert 10 data to the collection
+➢ List the first 5 data from the collection (limit)
+➢ List the entire data except first 2 data (skip)
+➢ Sort the data by choosing any field in the collection
+➢ Delete data from the collection
+➢ Drop the collection (db_cs)
+➢ Drop Database
+
+
+
+> use MyCev
+switched to db MyCev
+> db.createCollection("db_mca")
+{ "ok" : 1 }
+> db.MyCev.insertOne({"RegNo":1,"Name":"Amrutha P P","Place":"Kannur","Age":21})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614aad7dc38568b78d485de7")
+}
+> db.MyCev.insertOne({"RegNo":2,"Name":"Sruthi P S","Place":"Calicut","Age":21})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614aada9c38568b78d485de8")
+}
+> db.MyCev.insertOne({"RegNo":34,"Name":"Sharon K","Place":"Kottayam","Age":22})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614aae2cc38568b78d485de9")
+}
+> db.MyCev.insertOne({"RegNo":37,"Name":"Saran M","Place":"Kasargod","Age":22})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614aae64c38568b78d485dea")
+}
+> db.MyCev.insertOne({"RegNo":12,"Name":"Rick M","Place":"Kollam","Age":20})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614aaee1c38568b78d485deb")
+}
+> db.MyCev.insertOne({"RegNo":40,"Name":"Michone R","Place":"Wayand","Age":30})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614ab2fdc38568b78d485dec")
+}
+> db.MyCev.insertOne({"RegNo":19,"Name":"Meera K","Place":"Wayand","Age":25})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614ab32cc38568b78d485ded")
+}
+> db.MyCev.insertOne({"RegNo":20,"Name":"Tanaya","Place":"Mumbai","Age":24})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614ab36cc38568b78d485dee")
+}
+> db.MyCev.insertOne({"RegNo":32,"Name":"Rana","Place":"Banglore","Age":30})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614ab38ec38568b78d485def")
+}
+> db.MyCev.insertOne({"RegNo":23,"Name":"Raj","Place":"Chennai","Age":20})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("614ab3b8c38568b78d485df0")
+}
+> db.MyCev.find()
+{ "_id" : ObjectId("614aad7dc38568b78d485de7"), "RegNo" : 1, "Name" : "Amrutha P P", "Place" : "Kannur", "Age" : 21 }
+{ "_id" : ObjectId("614aada9c38568b78d485de8"), "RegNo" : 2, "Name" : "Sruthi P S", "Place" : "Calicut", "Age" : 21 }
+{ "_id" : ObjectId("614aae2cc38568b78d485de9"), "RegNo" : 34, "Name" : "Sharon K", "Place" : "Kottayam", "Age" : 22 }
+{ "_id" : ObjectId("614aae64c38568b78d485dea"), "RegNo" : 37, "Name" : "Saran M", "Place" : "Kasargod", "Age" : 22 }
+{ "_id" : ObjectId("614aaee1c38568b78d485deb"), "RegNo" : 12, "Name" : "Rick M", "Place" : "Kollam", "Age" : 20 }
+{ "_id" : ObjectId("614ab2fdc38568b78d485dec"), "RegNo" : 40, "Name" : "Michone R", "Place" : "Wayand", "Age" : 30 }
+{ "_id" : ObjectId("614ab32cc38568b78d485ded"), "RegNo" : 19, "Name" : "Meera K", "Place" : "Wayand", "Age" : 25 }
+{ "_id" : ObjectId("614ab36cc38568b78d485dee"), "RegNo" : 20, "Name" : "Tanaya", "Place" : "Mumbai", "Age" : 24 }
+{ "_id" : ObjectId("614ab38ec38568b78d485def"), "RegNo" : 32, "Name" : "Rana", "Place" : "Banglore", "Age" : 30 }
+{ "_id" : ObjectId("614ab3b8c38568b78d485df0"), "RegNo" : 23, "Name" : "Raj", "Place" : "Chennai", "Age" : 20 }
+>
+>
+>
+> 
+
+
+db.db_mca.insert([{"RegNo":1,"Name":"Anu","Place":"Banglore","Age":24},{"RegNo":2,"Name":"Ammu","Place":"Mumbai","Age":21},{"RegNo":3,"Name":"Lilly","Place":"Trivandrum","Age":20},{"RegNo":4,"Name":"Amjath","Place":"Kashmir","Age":25},{"RegNo":5,"Name":"Ria","Place":"Kollam","Age":21},{"RegNo":6,"Name":"Lavanya","Place":"Chennai","Age":25},{"RegNo":7,"Name":"Amrutha","Place":"Thalasser","Age":24},{"RegNo":8,"Name":"Sruthi","Place":"Kannur","Age":23},{"RegNo":9,"Name":"Sana","Place":"Sreelakshmi","Age":24},{"RegNo":10,"Name":"Seena","Place":"Wayanad","Age":20}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 10,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.dd_mca.find()
+> db.db_mca.find()
+{ "_id" : ObjectId("614ac3d9c38568b78d485df1"), "RegNo" : 1, "Name" : "Anu", "Place" : "Banglore", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df2"), "RegNo" : 2, "Name" : "Ammu", "Place" : "Mumbai", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df3"), "RegNo" : 3, "Name" : "Lilly", "Place" : "Trivandrum", "Age" : 20 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df4"), "RegNo" : 4, "Name" : "Amjath", "Place" : "Kashmir", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df5"), "RegNo" : 5, "Name" : "Ria", "Place" : "Kollam", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df6"), "RegNo" : 6, "Name" : "Lavanya", "Place" : "Chennai", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df7"), "RegNo" : 7, "Name" : "Amrutha", "Place" : "Thalasser", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df8"), "RegNo" : 8, "Name" : "Sruthi", "Place" : "Kannur", "Age" : 23 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df9"), "RegNo" : 9, "Name" : "Sana", "Place" : "Sreelakshmi", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485dfa"), "RegNo" : 10, "Name" : "Seena", "Place" : "Wayanad", "Age" : 20 }
+>
+>
+>
+> db.db_mca.find().pretty()
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df1"),
+        "RegNo" : 1,
+        "Name" : "Anu",
+        "Place" : "Banglore",
+        "Age" : 24
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df2"),
+        "RegNo" : 2,
+        "Name" : "Ammu",
+        "Place" : "Mumbai",
+        "Age" : 21
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df3"),
+        "RegNo" : 3,
+        "Name" : "Lilly",
+        "Place" : "Trivandrum",
+        "Age" : 20
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df4"),
+        "RegNo" : 4,
+        "Name" : "Amjath",
+        "Place" : "Kashmir",
+        "Age" : 25
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df5"),
+        "RegNo" : 5,
+        "Name" : "Ria",
+        "Place" : "Kollam",
+        "Age" : 21
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df6"),
+        "RegNo" : 6,
+        "Name" : "Lavanya",
+        "Place" : "Chennai",
+        "Age" : 25
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df7"),
+        "RegNo" : 7,
+        "Name" : "Amrutha",
+        "Place" : "Thalasser",
+        "Age" : 24
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df8"),
+        "RegNo" : 8,
+        "Name" : "Sruthi",
+        "Place" : "Kannur",
+        "Age" : 23
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485df9"),
+        "RegNo" : 9,
+        "Name" : "Sana",
+        "Place" : "Sreelakshmi",
+        "Age" : 24
+}
+{
+        "_id" : ObjectId("614ac3d9c38568b78d485dfa"),
+        "RegNo" : 10,
+        "Name" : "Seena",
+        "Place" : "Wayanad",
+        "Age" : 20
+}
+>
+>
+> db.db_mca.find().limit(5)
+{ "_id" : ObjectId("614ac3d9c38568b78d485df1"), "RegNo" : 1, "Name" : "Anu", "Place" : "Banglore", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df2"), "RegNo" : 2, "Name" : "Ammu", "Place" : "Mumbai", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df3"), "RegNo" : 3, "Name" : "Lilly", "Place" : "Trivandrum", "Age" : 20 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df4"), "RegNo" : 4, "Name" : "Amjath", "Place" : "Kashmir", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df5"), "RegNo" : 5, "Name" : "Ria", "Place" : "Kollam", "Age" : 21 }
+>
+
+
+
+ db.db_mca.find().skip(2)
+{ "_id" : ObjectId("614ac3d9c38568b78d485df3"), "RegNo" : 3, "Name" : "Lilly", "Place" : "Trivandrum", "Age" : 20 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df4"), "RegNo" : 4, "Name" : "Amjath", "Place" : "Kashmir", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df5"), "RegNo" : 5, "Name" : "Ria", "Place" : "Kollam", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df6"), "RegNo" : 6, "Name" : "Lavanya", "Place" : "Chennai", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df7"), "RegNo" : 7, "Name" : "Amrutha", "Place" : "Thalasser", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df8"), "RegNo" : 8, "Name" : "Sruthi", "Place" : "Kannur", "Age" : 23 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df9"), "RegNo" : 9, "Name" : "Sana", "Place" : "Sreelakshmi", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485dfa"), "RegNo" : 10, "Name" : "Seena", "Place" : "Wayanad", "Age" : 20 }
+>
+
+
+
+ db.db_mca.find().sort({"RegNo":1})
+{ "_id" : ObjectId("614ac3d9c38568b78d485df1"), "RegNo" : 1, "Name" : "Anu", "Place" : "Banglore", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df2"), "RegNo" : 2, "Name" : "Ammu", "Place" : "Mumbai", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df3"), "RegNo" : 3, "Name" : "Lilly", "Place" : "Trivandrum", "Age" : 20 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df4"), "RegNo" : 4, "Name" : "Amjath", "Place" : "Kashmir", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df5"), "RegNo" : 5, "Name" : "Ria", "Place" : "Kollam", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df6"), "RegNo" : 6, "Name" : "Lavanya", "Place" : "Chennai", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df7"), "RegNo" : 7, "Name" : "Amrutha", "Place" : "Thalasser", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df8"), "RegNo" : 8, "Name" : "Sruthi", "Place" : "Kannur", "Age" : 23 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df9"), "RegNo" : 9, "Name" : "Sana", "Place" : "Sreelakshmi", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485dfa"), "RegNo" : 10, "Name" : "Seena", "Place" : "Wayanad", "Age" : 20 }
+>
+>
+> db.db_mca.find().sort({"RegNo":-1})
+{ "_id" : ObjectId("614ac3d9c38568b78d485dfa"), "RegNo" : 10, "Name" : "Seena", "Place" : "Wayanad", "Age" : 20 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df9"), "RegNo" : 9, "Name" : "Sana", "Place" : "Sreelakshmi", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df8"), "RegNo" : 8, "Name" : "Sruthi", "Place" : "Kannur", "Age" : 23 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df7"), "RegNo" : 7, "Name" : "Amrutha", "Place" : "Thalasser", "Age" : 24 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df6"), "RegNo" : 6, "Name" : "Lavanya", "Place" : "Chennai", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df5"), "RegNo" : 5, "Name" : "Ria", "Place" : "Kollam", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df4"), "RegNo" : 4, "Name" : "Amjath", "Place" : "Kashmir", "Age" : 25 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df3"), "RegNo" : 3, "Name" : "Lilly", "Place" : "Trivandrum", "Age" : 20 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df2"), "RegNo" : 2, "Name" : "Ammu", "Place" : "Mumbai", "Age" : 21 }
+{ "_id" : ObjectId("614ac3d9c38568b78d485df1"), "RegNo" : 1, "Name" : "Anu", "Place" : "Banglore", "Age" : 24 }
+>
+
+
+
+
+ db.createCollection("db_cs")
+{ "ok" : 1 }
+> db.db_cs.insert([{"std_id":1,"std_name":"A","Place":"knr"},{"std_id":2,"std_name":"B","Place":"Cal"},{"std_id":3,"std_name":"C","Place":"kol"}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 3,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.db_cs.find()
+{ "_id" : ObjectId("614ac812c38568b78d485dfb"), "std_id" : 1, "std_name" : "A", "Place" : "knr" }
+{ "_id" : ObjectId("614ac812c38568b78d485dfc"), "std_id" : 2, "std_name" : "B", "Place" : "Cal" }
+{ "_id" : ObjectId("614ac812c38568b78d485dfd"), "std_id" : 3, "std_name" : "C", "Place" : "kol" }
+>
+>
+> db.db_cs.find().pretty()
+{
+        "_id" : ObjectId("614ac812c38568b78d485dfb"),
+        "std_id" : 1,
+        "std_name" : "A",
+        "Place" : "knr"
+}
+{
+        "_id" : ObjectId("614ac812c38568b78d485dfc"),
+        "std_id" : 2,
+        "std_name" : "B",
+        "Place" : "Cal"
+}
+{
+        "_id" : ObjectId("614ac812c38568b78d485dfd"),
+        "std_id" : 3,
+        "std_name" : "C",
+        "Place" : "kol"
+}
+>
+>
+> db.dropdb_cs
+MyCev.dropdb_cs
+
+
+
+
