@@ -1,3 +1,33 @@
+I. Consider the Company database with following tables:
+
+      1. Employee 
+
+         Emp_No (PRIMARY KEY)
+         Emp_Name
+         Address
+         Sex
+         Dept 
+         Salary
+         DOJ
+         Branch
+
+     2. Department
+
+         Dept_No (Primary Key)
+         DName
+         Mgr_Id
+         Mgr_Strtdate
+
+
+     Perform the following: 
+       1. Create Company database 
+       2. Viewing all databases 
+       3. Viewing all Tables in a Database, 
+       4. Creating Tables (With and Without Constraints) 
+       5. Inserting/Updating/Deleting Records in a Table 
+       6. Saving (Commit) and Undoing (rollback) 
+       
+
 mysql> use company;
 Database changed
 mysql> create table department(dept_no int primary key not null,d_name varchar(50) not null,mgr_id int not null,mgr_strtdate date not null);
