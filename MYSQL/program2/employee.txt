@@ -1,4 +1,13 @@
-show databases;
+Consider the  Department table
+
+      1. Rename the table Department as Dept
+      2. Add a new column Phone with not null constraints to the existing table Dept  
+      3. Rename the column DName to Dept_Name in Dept table 
+      4. Change the data type of column DName as CHAR with size 10 
+      5. Delete table 
+
+
+mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
