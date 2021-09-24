@@ -1,0 +1,139 @@
+{emp_name : “Sharath”, designation: “sales”, salary: 15000}
+{emp_name : “Shyam”, designation: “manager”, salary: 50000}
+{emp_name : “Abraham”, designation: “superwiser”, salary: 35000}
+{emp_name : “Muhammed”, designation: “sales”, salary: 15000}
+{emp_name : “Rohith”, designation: “sales”, salary: 20000}
+{emp_name : “Nirmal”, designation: “driver”, salary: 20000}
+{emp_name : “Samuel”, designation: “superwiser”, salary: 35000}
+{emp_name : “Johns”, designation: “sales”, salary: 15000}
+➢ Create a database Employee
+➢ Create a collection “db_employee”
+➢ Insert the above employee details to the collection called
+“db_employee”
+➢ List the details of employee having ‘salary > 15000’ AND
+designation = “superwiser”
+➢ List the details of employee who working in ‘sales’
+department
+➢ Update the emp_name :’’Sharath” into Jamsheer
+➢ Find the total sum of salary of employees under the sales
+department
+
+
+
+
+>use Employee
+switched to db Employee
+> db.createCollection("db_employee")
+{ "ok" : 1 }
+>
+>
+> db.db_employee.insert([{"emp_name":"Sharath","designation":"sales","salary":15000},{"emp_name":"Shyam","designation":"manager","salary":50000},{"emp_name":"Abraham","designation":"superwiser","salary":35000} ,{"emp_name":"Muhammed","designation":"sales","salary":15000}  ,{"emp_name":"Rohith","designation":"sales","salary":20000}  , {"emp_name":"Nirmal","designation":"driver","salary":20000}                                      ])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 6,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.db_employee.insert([{"emp_name":"Sharath","designation":"sales","salary":15000},{"emp_name":"Shyam","designation":"manager","salary":50000},{"emp_name":"Abraham","designation":"superwiser","salary":35000} ,{"emp_name":"Muhammed","designation":"sales","salary":15000}  ,{"emp_name":"Rohith","designation":"sales","salary":20000}  , {"emp_name":"Nirmal","designation":"driver","salary":20000},{"emp_name":"Samuel","designation":"superwiser","salary":35000}  ,{"emp_name":"johns","designation":"sales","salary":15000}    ])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 8,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+>
+>
+>
+> db.db_employee.find()
+{ "_id" : ObjectId("614e263e5b74192f869a81b9"), "emp_name" : "Sharath", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81ba"), "emp_name" : "Shyam", "designation" : "manager", "salary" : 50000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bb"), "emp_name" : "Abraham", "designation" : "superwiser", "salary" : 35000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bc"), "emp_name" : "Muhammed", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bd"), "emp_name" : "Rohith", "designation" : "sales", "salary" : 20000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81be"), "emp_name" : "Nirmal", "designation" : "driver", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81bf"), "emp_name" : "Sharath", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c0"), "emp_name" : "Shyam", "designation" : "manager", "salary" : 50000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c1"), "emp_name" : "Abraham", "designation" : "superwiser", "salary" : 35000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c2"), "emp_name" : "Muhammed", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c3"), "emp_name" : "Rohith", "designation" : "sales", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c4"), "emp_name" : "Nirmal", "designation" : "driver", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c5"), "emp_name" : "Samuel", "designation" : "superwiser", "salary" : 35000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c6"), "emp_name" : "johns", "designation" : "sales", "salary" : 15000 }
+>
+>
+>
+> db.db_employee.find({"salary":{$gt:15000}},  {"designation":"superwiser"})
+{ "_id" : ObjectId("614e263e5b74192f869a81ba"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e263e5b74192f869a81bb"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e263e5b74192f869a81bd"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e263e5b74192f869a81be"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c0"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c1"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c3"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c4"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c5"), "designation" : "superwiser" }
+>
+>
+>
+> db.db_employee.find({"designation":"sales"})
+{ "_id" : ObjectId("614e263e5b74192f869a81b9"), "emp_name" : "Sharath", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bc"), "emp_name" : "Muhammed", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bd"), "emp_name" : "Rohith", "designation" : "sales", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81bf"), "emp_name" : "Sharath", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c2"), "emp_name" : "Muhammed", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c3"), "emp_name" : "Rohith", "designation" : "sales", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c6"), "emp_name" : "johns", "designation" : "sales", "salary" : 15000 }
+>
+>
+>
+> db.db_employee.updateOne({"empname":"Sharath"}, {$set:{"emp_name":"Jamsheer"}} )
+{ "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
+> db.db_employee.updateOne({"emp_name":"Sharath"}, {$set:{"emp_name":"Jamsheer"}} )
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+>
+>
+>
+> db.db_employee.find()
+{ "_id" : ObjectId("614e263e5b74192f869a81b9"), "emp_name" : "Jamsheer", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81ba"), "emp_name" : "Shyam", "designation" : "manager", "salary" : 50000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bb"), "emp_name" : "Abraham", "designation" : "superwiser", "salary" : 35000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bc"), "emp_name" : "Muhammed", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81bd"), "emp_name" : "Rohith", "designation" : "sales", "salary" : 20000 }
+{ "_id" : ObjectId("614e263e5b74192f869a81be"), "emp_name" : "Nirmal", "designation" : "driver", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81bf"), "emp_name" : "Sharath", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c0"), "emp_name" : "Shyam", "designation" : "manager", "salary" : 50000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c1"), "emp_name" : "Abraham", "designation" : "superwiser", "salary" : 35000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c2"), "emp_name" : "Muhammed", "designation" : "sales", "salary" : 15000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c3"), "emp_name" : "Rohith", "designation" : "sales", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c4"), "emp_name" : "Nirmal", "designation" : "driver", "salary" : 20000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c5"), "emp_name" : "Samuel", "designation" : "superwiser", "salary" : 35000 }
+{ "_id" : ObjectId("614e26845b74192f869a81c6"), "emp_name" : "johns", "designation" : "sales", "salary" : 15000 }
+>
+>
+>
+> db.db_employee.aggregate([{$group:{_id:"$sales",salary:{$sum:"$salary"}}}])
+{ "_id" : null, "salary" : 360000 }
+>
+>
+> db.db_employee.find({"salary":{$gt:15000}},{"designation":"superwiser"})
+{ "_id" : ObjectId("614e263e5b74192f869a81ba"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e263e5b74192f869a81bb"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e263e5b74192f869a81bd"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e263e5b74192f869a81be"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c0"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c1"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c3"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c4"), "designation" : "superwiser" }
+{ "_id" : ObjectId("614e26845b74192f869a81c5"), "designation" : "superwiser" }
+>
+
+
+
