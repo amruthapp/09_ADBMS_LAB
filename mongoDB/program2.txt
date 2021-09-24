@@ -1,0 +1,216 @@
+Create a database Myclass
+➢ Create a collection named “db_school”
+-> Should contain this fields : { student_name, student_rollno,
+mark[subject, mark] }
+Nb: Mark should be stored as array
+➢ Insert details of 10 students in a class
+➢ List the entire students in the class
+➢ Update mark of any students in the collection “db_school”
+➢ Delete the data of first student in the collection
+
+
+
+ show dbs
+Employee  0.000GB
+MyCev     0.000GB
+Myclass   0.000GB
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+school    0.000GB
+> db.db_mca.find()
+> use Myclass
+switched to db Myclass
+>
+> db.createCollection("db_school")
+{ "ok" : 1 }
+>
+>
+> db.db_school.insert([{"student_name":"Amrutha P P","student_rollno":11,"mark":[{"maths":60,"english":80}]}, {"student_name":"Ananya k","student_rollno":16,"mark":[{"maths":50,"english":70}]}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.db_school.insert([{"student_name":"Anarkali P","student_rollno":14,"mark":[{"maths":70,"english":86}]}, {"student_name":"Shazil M","student_rollno":18,"mark":[{"maths":55,"english":76}]},{"student_name":"Pranav M","student_rollno":24,"mark":[{"maths":75,"english":96}]},{"student_name":"Lavanya P","student_rollno":54,"mark":[{"maths":60,"english":36}]}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 4,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.db_school.find()
+{ "_id" : ObjectId("614e1cb35b74192f869a81b3"), "student_name" : "Amrutha P P", "student_rollno" : 11, "mark" : [ { "maths" : 60, "english" : 80 } ] }
+{ "_id" : ObjectId("614e1cb35b74192f869a81b4"), "student_name" : "Ananya k", "student_rollno" : 16, "mark" : [ { "maths" : 50, "english" : 70 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b5"), "student_name" : "Anarkali P", "student_rollno" : 14, "mark" : [ { "maths" : 70, "english" : 86 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b6"), "student_name" : "Shazil M", "student_rollno" : 18, "mark" : [ { "maths" : 55, "english" : 76 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b7"), "student_name" : "Pranav M", "student_rollno" : 24, "mark" : [ { "maths" : 75, "english" : 96 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b8"), "student_name" : "Lavanya P", "student_rollno" : 54, "mark" : [ { "maths" : 60, "english" : 36 } ] }
+>
+>
+>
+> db.db_school.find().pretty()
+{
+        "_id" : ObjectId("614e1cb35b74192f869a81b3"),
+        "student_name" : "Amrutha P P",
+        "student_rollno" : 11,
+        "mark" : [
+                {
+                        "maths" : 60,
+                        "english" : 80
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1cb35b74192f869a81b4"),
+        "student_name" : "Ananya k",
+        "student_rollno" : 16,
+        "mark" : [
+                {
+                        "maths" : 50,
+                        "english" : 70
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b5"),
+        "student_name" : "Anarkali P",
+        "student_rollno" : 14,
+        "mark" : [
+                {
+                        "maths" : 70,
+                        "english" : 86
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b6"),
+        "student_name" : "Shazil M",
+        "student_rollno" : 18,
+        "mark" : [
+                {
+                        "maths" : 55,
+                        "english" : 76
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b7"),
+        "student_name" : "Pranav M",
+        "student_rollno" : 24,
+        "mark" : [
+                {
+                        "maths" : 75,
+                        "english" : 96
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b8"),
+        "student_name" : "Lavanya P",
+        "student_rollno" : 54,
+        "mark" : [
+                {
+                        "maths" : 60,
+                        "english" : 36
+                }
+        ]
+}
+>
+>
+>
+>> db.db_school.updateOne({"mark":[{"maths":60,"english":36}]},{$set:{"mark":[{"maths":99,"english":55}]}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.db_school.find().pretty()
+{
+        "_id" : ObjectId("614e1cb35b74192f869a81b3"),
+        "student_name" : "Amrutha P P",
+        "student_rollno" : 11,
+        "mark" : [
+                {
+                        "maths" : 60,
+                        "english" : 80
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1cb35b74192f869a81b4"),
+        "student_name" : "Ananya k",
+        "student_rollno" : 16,
+        "mark" : [
+                {
+                        "maths" : 50,
+                        "english" : 70
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b5"),
+        "student_name" : "Anarkali P",
+        "student_rollno" : 14,
+        "mark" : [
+                {
+                        "maths" : 70,
+                        "english" : 86
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b6"),
+        "student_name" : "Shazil M",
+        "student_rollno" : 18,
+        "mark" : [
+                {
+                        "maths" : 55,
+                        "english" : 76
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b7"),
+        "student_name" : "Pranav M",
+        "student_rollno" : 24,
+        "mark" : [
+                {
+                        "maths" : 75,
+                        "english" : 96
+                }
+        ]
+}
+{
+        "_id" : ObjectId("614e1da15b74192f869a81b8"),
+        "student_name" : "Lavanya P",
+        "student_rollno" : 54,
+        "mark" : [
+                {
+                        "maths" : 99,
+                        "english" : 55
+                }
+        ]
+}
+>
+>
+>
+> db.db_school.remove({"_id" : ObjectId("614e1da15b74192f869a81b8")})
+WriteResult({ "nRemoved" : 1 })
+>
+>
+> db.db_school.find()
+{ "_id" : ObjectId("614e1cb35b74192f869a81b3"), "student_name" : "Amrutha P P", "student_rollno" : 11, "mark" : [ { "maths" : 60, "english" : 80 } ] }
+{ "_id" : ObjectId("614e1cb35b74192f869a81b4"), "student_name" : "Ananya k", "student_rollno" : 16, "mark" : [ { "maths" : 50, "english" : 70 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b5"), "student_name" : "Anarkali P", "student_rollno" : 14, "mark" : [ { "maths" : 70, "english" : 86 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b6"), "student_name" : "Shazil M", "student_rollno" : 18, "mark" : [ { "maths" : 55, "english" : 76 } ] }
+{ "_id" : ObjectId("614e1da15b74192f869a81b7"), "student_name" : "Pranav M", "student_rollno" : 24, "mark" : [ { "maths" : 75, "english" : 96 } ] }
+>
+>
+>
+>
