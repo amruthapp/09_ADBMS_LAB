@@ -1,0 +1,91 @@
+Given Student  Database, in which student marks assessment is recorded. In such schema, create a trigger so that the total and average of specified marks is
+automatically inserted whenever a record is insert.
+
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| Company            |
+| amrutha            |
+| company            |
+| information_schema |
+| linuxdb            |
+| mysql              |
+| office             |
+| performance_schema |
+| sbi                |
+| student            |
+| sys                |
+| wordpress          |
++--------------------+
+12 rows in set (0.02 sec)
+
+mysql> use student;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| course            |
+| employee          |
+| stdinfo           |
+| university        |
++-------------------+
+4 rows in set (0.00 sec)
+
+
+create table studentmark(sid int primary key not null,name varchar(50) no
+t null,maths int(2),english int(2),science int(2),total int(10),percentage int(10));
+Query OK, 0 rows affected, 5 warnings (1.08 sec)
+
+mysql> desc studentmark;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| sid        | int         | NO   | PRI | NULL    |       |
+| name       | varchar(50) | NO   |     | NULL    |       |
+| maths      | int         | YES  |     | NULL    |       |
+| english    | int         | YES  |     | NULL    |       |
+| science    | int         | YES  |     | NULL    |       |
+| total      | int         | YES  |     | NULL    |       |
+| percentage | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> create trigger std_mark
+    -> before insert
+    -> on 
+    -> studentmark
+    -> for each row
+    -> set new.total=new.maths+new.english+new.science,
+    -> new.percentage=new.total/60*100;
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> insert into studentmark(sid,name,maths,english,science)
+    -> values(1,'Amrutha',25,36,52),
+    -> (2,'Anaswara',52,24,36),
+    -> (3,'Bavitha',51,53,52),
+    -> (4,'Deepika',42,28,39),
+    -> (5,'Sree',47,48,49);
+Query OK, 5 rows affected (0.08 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentmark;
++-----+----------+-------+---------+---------+-------+------------+
+| sid | name     | maths | english | science | total | percentage |
++-----+----------+-------+---------+---------+-------+------------+
+|   1 | Amrutha  |    25 |      36 |      52 |   113 |        188 |
+|   2 | Anaswara |    52 |      24 |      36 |   112 |        187 |
+|   3 | Bavitha  |    51 |      53 |      52 |   156 |        260 |
+|   4 | Deepika  |    42 |      28 |      39 |   109 |        182 |
+|   5 | Sree     |    47 |      48 |      49 |   144 |        240 |
++-----+----------+-------+---------+---------+-------+------------+
+5 rows in set (0.00 sec)
+
